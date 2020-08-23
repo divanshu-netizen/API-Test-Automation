@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.3 on win32)" generated="20200823 23:15:52.354" rpa="false">
+<suite id="s1" name="Request" source="C:\development\Git_Project\Assignments\TestCases\DELETE_Requests\Request.robot">
+<test id="s1-t1" name="DeleteUser">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+</arguments>
+<msg timestamp="20200823 23:15:52.844" level="INFO">Creating Session using : alias=mysession, url=https://jsonplaceholder.typicode.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200823 23:15:52.843" endtime="20200823 23:15:52.845"></status>
+</kw>
+<kw name="Delete Request" library="RequestsLibrary">
+<doc>Send a DELETE request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>/posts/1</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200823 23:15:53.647" level="INFO">DELETE Request : url=https://jsonplaceholder.typicode.com/posts/1 
+ path_url=/posts/1 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20200823 23:15:53.647" level="INFO">DELETE Response : url=https://jsonplaceholder.typicode.com/posts/1 
+ status=200, reason=OK 
+ body={} 
+ </msg>
+<msg timestamp="20200823 23:15:53.648" level="INFO">c:\users\divan\appdata\local\programs\python\python38\lib\site-packages\urllib3\connectionpool.py:979: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20200823 23:15:53.650" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200823 23:15:52.845" endtime="20200823 23:15:53.651"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<status status="PASS" starttime="20200823 23:15:53.659" endtime="20200823 23:15:53.663"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${status_code}</var>
+</assign>
+<msg timestamp="20200823 23:15:53.668" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20200823 23:15:53.665" endtime="20200823 23:15:53.668"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status_code}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20200823 23:15:53.669" endtime="20200823 23:15:53.671"></status>
+</kw>
+<status status="PASS" starttime="20200823 23:15:52.843" endtime="20200823 23:15:53.673" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Response_Verification">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+</arguments>
+<msg timestamp="20200823 23:15:53.676" level="INFO">Creating Session using : alias=mysession, url=https://jsonplaceholder.typicode.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200823 23:15:53.676" endtime="20200823 23:15:53.681"></status>
+</kw>
+<kw name="Delete Request" library="RequestsLibrary">
+<doc>Send a DELETE request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>/posts/1</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200823 23:15:54.490" level="INFO">DELETE Request : url=https://jsonplaceholder.typicode.com/posts/1 
+ path_url=/posts/1 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20200823 23:15:54.490" level="INFO">DELETE Response : url=https://jsonplaceholder.typicode.com/posts/1 
+ status=200, reason=OK 
+ body={} 
+ </msg>
+<msg timestamp="20200823 23:15:54.490" level="INFO">c:\users\divan\appdata\local\programs\python\python38\lib\site-packages\urllib3\connectionpool.py:979: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20200823 23:15:54.492" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200823 23:15:53.682" endtime="20200823 23:15:54.493"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${response_body}</var>
+</assign>
+<msg timestamp="20200823 23:15:54.495" level="INFO">${response_body} = {}</msg>
+<status status="PASS" starttime="20200823 23:15:54.494" endtime="20200823 23:15:54.495"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${response_body}</arg>
+<arg>{}</arg>
+</arguments>
+<status status="PASS" starttime="20200823 23:15:54.496" endtime="20200823 23:15:54.497"></status>
+</kw>
+<status status="PASS" starttime="20200823 23:15:53.676" endtime="20200823 23:15:54.500" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200823 23:15:52.355" endtime="20200823 23:15:54.504"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" id="s1" name="Request">Request</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
