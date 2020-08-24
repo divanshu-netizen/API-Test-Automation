@@ -14,4 +14,4 @@ Hit Enter
 The Test Cases under the file runs and status is displayed
 Output, Report and logs are also displayed along with the path.
 
-3. Reports are stored in the sun folder i.e GET_Requests, choose your choice of browser and open the report.
+3. Reports are stored in the sub folder i.e GET_Requests, choose your choice of browser and open the report.
